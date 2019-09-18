@@ -1,0 +1,127 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="primary"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="primary">
+      RU IFMA
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div>
+    <ion-segment color="secondary" [(ngModel)]="icons" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="almoco">
+        Almoço
+      </ion-segment-button>
+      <ion-segment-button value="jantar">
+        Jantar
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+
+  <div [ngSwitch]="icons">
+    <ion-list *ngSwitchCase="'almoco'">
+      <ion-card color="secondary">
+        <ion-card-header>
+          <ion-card-title>Almoço</ion-card-title>
+          <ion-card-subtitle>11:00 ÀS 14:30</ion-card-subtitle>
+        </ion-card-header>
+
+        <ng-container *ngIf="!segundaAlmoco || segundaAlmoco.length == 0">
+          <div *ngFor="let n of [0,1,2]" padding>
+            <ion-skeleton-text></ion-skeleton-text>
+            <p>
+              <ion-skeleton-text class="text-skeleton"></ion-skeleton-text>
+            </p>
+          </div>
+        </ng-container>
+
+        <ion-item-sliding *ngFor="let todo of segundaAlmoco" text center>
+
+          <ion-item lines="inset">
+            <ion-label>{{ todo.salada }}</ion-label>
+          </ion-item>
+
+          <ion-item lines="inset">
+            <ion-label>{{ todo.principal}}</ion-label>
+          </ion-item>
+
+          <ion-item lines="inset">
+            <ion-label> {{ todo.guarnicao}}</ion-label>
+          </ion-item>
+
+          <ion-item lines="inset">
+            <ion-label>{{ todo.cereal}}</ion-label>
+          </ion-item>
+
+
+          <ion-item lines="inset">
+            <ion-label>{{ todo.leguminosa}}</ion-label>
+          </ion-item>
+
+
+          <ion-item lines="inset">
+            <ion-label>{{ todo.vegetariano}}</ion-label>
+          </ion-item>
+
+
+          <ion-item lines="inset">
+            <ion-label>{{ todo.fruta}}</ion-label>
+          </ion-item>
+
+
+        </ion-item-sliding>
+      </ion-card>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'jantar'">
+      <ion-card color="secondary">
+        <ion-card-header>
+          <ion-card-title>Jantar</ion-card-title>
+          <ion-card-subtitle>17:00 ÀS 19:30</ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-item-sliding *ngFor="let todo of segundaJanta">
+
+          <ion-item lines="inset">
+            <ion-label>{{ todo.salada }}</ion-label>           
+          </ion-item>
+
+          <ion-item lines="inset">
+            <ion-label>{{ todo.principal}}</ion-label>          
+          </ion-item>
+
+          <ion-item lines="inset">
+            <ion-label>{{ todo.guarnicao}}</ion-label>         
+          </ion-item>
+
+          <ion-item lines="inset">
+            <ion-label>{{ todo.cereal}}</ion-label>        
+          </ion-item>
+
+
+          <ion-item lines="inset">
+            <ion-label>{{ todo.leguminosa}}</ion-label>         
+          </ion-item>
+
+
+          <ion-item lines="inset">
+            <ion-label>{{ todo.vegetariano}}</ion-label>      
+          </ion-item>
+
+
+          <ion-item lines="inset">
+            <ion-label>{{ todo.fruta}}</ion-label>   
+          </ion-item>
+
+        </ion-item-sliding>
+      </ion-card>
+    </ion-list>
+
+  </div>
+
+</ion-content>

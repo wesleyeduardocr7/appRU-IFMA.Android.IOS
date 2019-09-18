@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Atualização do Cardápio</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-list lines="full">
+
+    <ion-item *ngIf="segundaJanta">
+      <ion-input required type="text" placeholder="Salada" [(ngModel)]="segundaJanta.salada"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="segundaJanta">
+      <ion-input required type="text" placeholder="Prato Principal" [(ngModel)]="segundaJanta.principal"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="segundaJanta">
+      <ion-input required type="text" placeholder="Guarnição" [(ngModel)]="segundaJanta.guarnicao"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="segundaJanta">
+      <ion-input required type="text" placeholder="Cereal" [(ngModel)]="segundaJanta.cereal"></ion-input>
+    </ion-item>
+
+
+    <ion-item *ngIf="segundaJanta">
+      <ion-input required type="text" placeholder="Leguminosa" [(ngModel)]="segundaJanta.leguminosa"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="segundaJanta">
+      <ion-input required type="text" placeholder="Vegetariano" [(ngModel)]="segundaJanta.vegetariano"></ion-input>
+    </ion-item>
+
+
+    <ion-item *ngIf="segundaJanta">
+      <ion-input required type="text" placeholder="Fruta" [(ngModel)]="segundaJanta.fruta"></ion-input>
+    </ion-item>
+
+
+  </ion-list>
+  <ion-button expand="full" (click)="saveTodoJanta()">Salvar</ion-button>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="danger">
+    <!--<ion-fab-button color="danger" (click)="onRemoveTodo(segundaJantaId)" routerLink="/" routerDirection="forward">
+          <ion-icon name="trash"></ion-icon>
+      </ion-fab-button>-->
+  </ion-fab>
+</ion-content>

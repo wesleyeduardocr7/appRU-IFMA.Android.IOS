@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Atualização do Cardápio</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-list lines="full">
+
+    <ion-item *ngIf="segundaAlmoco">
+      <ion-input required type="text" placeholder="Salada" [(ngModel)]="segundaAlmoco.salada"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="segundaAlmoco">
+      <ion-input required type="text" placeholder="Prato Principal" [(ngModel)]="segundaAlmoco.principal"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="segundaAlmoco">
+      <ion-input required type="text" placeholder="Guarnição" [(ngModel)]="segundaAlmoco.guarnicao"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="segundaAlmoco">
+      <ion-input required type="text" placeholder="Cereal" [(ngModel)]="segundaAlmoco.cereal"></ion-input>
+    </ion-item>
+
+
+    <ion-item *ngIf="segundaAlmoco">
+      <ion-input required type="text" placeholder="Leguminosa" [(ngModel)]="segundaAlmoco.leguminosa"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="segundaAlmoco">
+      <ion-input required type="text" placeholder="Vegetariano" [(ngModel)]="segundaAlmoco.vegetariano"></ion-input>
+    </ion-item>
+
+
+    <ion-item *ngIf="segundaAlmoco">
+      <ion-input required type="text" placeholder="Fruta" [(ngModel)]="segundaAlmoco.fruta"></ion-input>
+    </ion-item>
+
+
+  </ion-list>
+  <ion-button expand="full" (click)="saveTodo()">Save</ion-button>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="danger">
+    <!--<ion-fab-button color="danger" (click)="onRemoveTodo(segundaAlmocoId)" routerLink="/" routerDirection="forward">
+          <ion-icon name="trash"></ion-icon>
+      </ion-fab-button>-->
+  </ion-fab>
+</ion-content>

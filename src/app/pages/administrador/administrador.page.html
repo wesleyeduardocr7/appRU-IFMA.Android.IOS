@@ -1,0 +1,163 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="primary"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="primary">
+      Atualização Cardápio
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div>
+    <ion-segment color="secondary" [(ngModel)]="icons" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="almoco">
+        Almoço
+      </ion-segment-button>
+      <ion-segment-button value="jantar">
+        Jantar
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+
+  <div [ngSwitch]="icons">
+    <ion-list *ngSwitchCase="'almoco'">
+
+
+      <ion-list>
+        <ng-container *ngIf="!segundaAlmoco || segundaAlmoco.length == 0">
+          <div *ngFor="let n of [0,1,2]" padding>
+            <ion-skeleton-text></ion-skeleton-text>
+            <p>
+              <ion-skeleton-text class="text-skeleton"></ion-skeleton-text>
+            </p>
+          </div>
+        </ng-container>
+
+        <ion-item-sliding *ngFor="let almoco of segundaAlmoco">
+
+          <ion-item lines="inset" button [routerLink]="['/details', almoco.id]" id="dadosAlmoco">
+            <ion-label>
+              <b>Salada:</b> {{ almoco.salada }}
+            </ion-label>
+          </ion-item>
+
+          <ion-item lines="inset" button [routerLink]="['/details', almoco.id]" id="dadosAlmoco">
+            <ion-label>
+              <b>Prato Principal:</b> {{ almoco.principal}}
+            </ion-label>
+          </ion-item>
+
+          <ion-item lines="inset" button [routerLink]="['/details', almoco.id]" id="dadosAlmoco">
+            <ion-label>
+              <b>Guarnição:</b> {{ almoco.guarnicao}}
+            </ion-label>
+          </ion-item>
+
+          <ion-item lines="inset" button [routerLink]="['/details', almoco.id]" id="dadosAlmoco">
+            <ion-label>
+              <b>Cereal:</b> {{ almoco.cereal}}
+            </ion-label>
+          </ion-item>
+
+
+          <ion-item lines="inset" button [routerLink]="['/details', almoco.id]" id="dadosAlmoco">
+            <ion-label>
+              <b>Leguminosa:</b> {{ almoco.leguminosa}}
+            </ion-label>
+          </ion-item>
+
+
+          <ion-item lines="inset" button [routerLink]="['/details', almoco.id]" id="dadosAlmoco">
+            <ion-label>
+              <b>Vegetariano:</b> {{ almoco.vegetariano}}
+            </ion-label>
+          </ion-item>
+
+
+          <ion-item lines="inset" button [routerLink]="['/details', almoco.id]" id="dadosAlmoco">
+            <ion-label>
+              <b>Fruta:</b> {{ almoco.fruta}}
+            </ion-label>
+          </ion-item>
+
+
+        </ion-item-sliding>
+
+
+      </ion-list>
+
+
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'jantar'">
+      <ion-list>
+        <ng-container *ngIf="!segundaJanta || segundaJanta.length == 0">
+          <div *ngFor="let n of [0,1,2]" padding>
+            <ion-skeleton-text></ion-skeleton-text>
+            <p>
+              <ion-skeleton-text class="text-skeleton"></ion-skeleton-text>
+            </p>
+          </div>
+        </ng-container>
+        <ion-card>
+        <ion-item-sliding *ngFor="let janta of segundaJanta">
+          
+          <ion-item lines="inset" button [routerLink]="['/updatejanta', janta.id]" id="dadosJanta">
+            <ion-label>
+              <b>Salada:</b> {{ janta.salada }}
+            </ion-label>
+          </ion-item>
+
+          <ion-item lines="inset" button [routerLink]="['/updatejanta', janta.id]" id="dadosJanta">
+            <ion-label>
+              <b>Prato Principal:</b> {{ janta.principal}}
+            </ion-label>
+          </ion-item>
+
+          <ion-item lines="inset" button [routerLink]="['/updatejanta', janta.id]" id="dadosJanta">
+            <ion-label>
+              <b>Guarnição:</b> {{ janta.guarnicao}}
+            </ion-label>
+          </ion-item>
+
+          <ion-item lines="inset" button [routerLink]="['/updatejanta', janta.id]" id="dadosJanta">
+            <ion-label>
+              <b>Cereal:</b> {{ janta.cereal}}
+            </ion-label>
+          </ion-item>
+
+
+          <ion-item lines="inset" button [routerLink]="['/updatejanta', janta.id]" id="dadosJanta">
+            <ion-label>
+              <b>Leguminosa:</b> {{ janta.leguminosa}}
+            </ion-label>
+          </ion-item>
+
+
+          <ion-item lines="inset" button [routerLink]="['/updatejanta', janta.id]" id="dadosJanta">
+            <ion-label>
+              <b>Vegetariano:</b> {{ janta.vegetariano}}
+            </ion-label>
+          </ion-item>
+
+
+          <ion-item lines="inset" button [routerLink]="['/updatejanta', janta.id]" id="dadosJanta">
+            <ion-label>
+              <b>Fruta:</b> {{ janta.fruta}}
+            </ion-label>
+          </ion-item>
+
+
+        </ion-item-sliding>
+      </ion-card>
+
+      </ion-list>
+    </ion-list>
+
+  </div>
+
+</ion-content>
